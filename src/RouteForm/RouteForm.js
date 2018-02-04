@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
 
-import { Header } from './Header';
-
 export class RouteForm extends Component {
   render() {
     return (
-      <div>
-        <Header />
+      <main className="route-form">
         <div>form</div>
-      </div>
+      </main>
     );
   }
 }

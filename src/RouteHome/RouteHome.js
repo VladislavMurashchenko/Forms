@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 
-import { Header } from './Header';
+import FormsList from '../FormsList/FormsList';
 
 export class RouteHome extends Component {
   render() {
     return (
-      <div>
-        <Header />
-        <div>home</div>
-      </div>
+      <main className="route-home">
+        <FormsList />
+      </main>
     );
   }
 }

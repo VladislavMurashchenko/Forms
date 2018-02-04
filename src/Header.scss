@@ -1,9 +1,0 @@
-$header_bgcolor: #070812;
-
-.app-header {
-  background-color: $header_bgcolor;
-  color: #EDEDED;
-  padding: 20px;
-  box-shadow: 0 0 15px $header_bgcolor,
-              inset 0px -5px 5px -5px lighten($header_bgcolor, 50%);
-}
