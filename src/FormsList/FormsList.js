@@ -15,7 +15,8 @@ class FormsList extends Component {
                         id={form.id}
                         name={form.name}
                         description={form.description}
-                        image={form.image}/>
+                        image={form.image}
+                        currentPath={this.props.pathname}/>
             );
           })
         }
@@ -26,6 +27,7 @@ class FormsList extends Component {
 
 export default connect(
   state => ({
-    formsInfo: state.formsInfo
+    formsInfo: state.formsInfo,
+    pathname: state.routing.locationBeforeTransitions.pathname
   })
 )(FormsList);
