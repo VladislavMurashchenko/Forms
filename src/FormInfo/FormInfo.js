@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-import './no_image_available.png'
+import '../imgs/no_image_available.png';
 import './FormInfo.css';
 
 export const FormInfo = ( {id, name, description, image, currentPath} ) => {
   const path = `${currentPath}/${id}`;
-  
+
   return (
     <li className="form-info">
       <div className="form-info__image-wrapper">
