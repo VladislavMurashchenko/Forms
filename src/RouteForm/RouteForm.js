@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
+import getObjectById from '../functions/get-object-by-id';
+
 import "../imgs/no_image_available.png";
 import "./RouteForm.css";
 
@@ -39,13 +41,7 @@ class RouteForm extends Component {
 const mapStateToProps = (state, ownProps) => {
   const id = ownProps.params.id;
 
-  let formInfo;
-
-  state.formsInfo.forEach(info => {
-    if (info.id === +id) {
-     formInfo = info;
-    }
-  });
+  let formInfo = getObjectById(state.formsInfo, id);
 
   return {
     ...formInfo
