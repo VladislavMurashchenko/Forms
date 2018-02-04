@@ -4,7 +4,7 @@ import { Router, Route, Redirect, IndexRedirect } from 'react-router';
 import './App.css';
 
 import { RouteHome } from '../RouteHome/RouteHome';
-import { RouteForm } from '../RouteForm/RouteForm';
+import  RouteForm  from '../RouteForm/RouteForm';
 import { Header } from '../Header/Header';
 
 export const App = ( { history } ) => {
