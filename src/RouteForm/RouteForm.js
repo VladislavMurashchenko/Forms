@@ -27,7 +27,7 @@ class RouteForm extends Component {
           <AppForm id={id} />
 
           <footer className="route-form__footer">
-            <button className="route-form__go-back" onClick={router.goBack}>Go Back To Forms</button>
+            <button className="route-form__go-back" onClick={router.goBack}>Go Back</button>
           </footer>
 
         </section>
