@@ -2,7 +2,11 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
+import "../imgs/no_image_available.png";
+import "./RouteForm.css";
+
 import AppForm from '../AppForm/AppForm';
+
 
 class RouteForm extends Component {
   render() {
@@ -17,13 +21,13 @@ class RouteForm extends Component {
               <img className="route-form__image" src={image} alt={name}/>
             </div>
             <h1 className="route-form__name">{name}</h1>
-            <p className="route-form__descrition">{description}</p>
+            <p className="route-form__description">{description}</p>
           </header>
 
           <AppForm id={id} />
 
           <footer className="route-form__footer">
-            <button className="route-form__go-back" onClick={router.goBack}>Go Back</button>
+            <button className="route-form__go-back" onClick={router.goBack}>Go Back To Forms</button>
           </footer>
 
         </section>

@@ -1,0 +1,64 @@
+@import 'SCSS/_global_colors.scss';
+@import 'SCSS/_clear-fix.scss';
+@import 'SCSS/_mixin-circle-overlay.scss';
+
+.route-form {
+  padding-bottom: 1px;
+
+  &__container {
+    max-width: 1100px;
+    margin: 5% auto;
+    padding: 5%;
+    background: $color_2;
+  }
+
+  &__description {
+    max-width: 500px;
+    line-height: 1.6;
+  }
+
+  &__header {
+    @include clear-fix();
+    margin-bottom: 5%;
+  }
+
+  $img-min-height: 160px;
+  &__image {
+    width: 100%;
+    min-height: $img-min-height;
+    object-fit: cover;
+  }
+
+  &__image-wrapper {
+    background: url("../imgs/no_image_available.png") no-repeat 50% 50%;
+    background-size: contain;
+    min-height: $img-min-height;
+
+    @media (min-width: 510px) {
+      float: right;
+      width: 40%;
+      max-width: 300px;
+      margin-left: 10px;
+    }
+  }
+
+  &__footer {
+    margin-top: 5%;
+    text-align: right;
+  }
+
+  &__go-back {
+    border: 1px solid $color_3;
+    background: inherit;
+    padding: 5px 15px;
+    cursor: pointer;
+    color: $color_3;
+    @include circle-overlay(rgba(0,0,0,0.1), 0.4s);
+  }
+
+  &__go-back:hover {
+    transition: transform 0.1s, box-shadow 0.4s;
+    transform: scale(1.1);
+    box-shadow: 0 5px 10px -5px;
+  }
+}
