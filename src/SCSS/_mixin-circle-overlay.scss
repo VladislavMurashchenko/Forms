@@ -1,5 +1,6 @@
 @mixin circle-overlay($color, $duration) {
   overflow: hidden;
+  position: relative;
 
   &::after {
     content: '';

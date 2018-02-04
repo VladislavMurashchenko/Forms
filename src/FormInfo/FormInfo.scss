@@ -33,14 +33,13 @@
 
   &__image-wrapper {
     height: $image_height;
-    background: url("./no_image_available.png") no-repeat 50% 50%;
+    background: url("../imgs/no_image_available.png") no-repeat 50% 50%;
     background-size: contain;
 
   }
 
   &__btn {
     display: inline-block;
-    position: relative;
     background: inherit;
     border: 1px solid $color_3;
     padding: 5px 15px;
