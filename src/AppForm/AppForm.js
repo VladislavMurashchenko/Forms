@@ -6,25 +6,33 @@ import getObjectById from '../functions/get-object-by-id';
 
 import './AppForm.css';
 
+import FormItem from '../FormItem/FormItem';
+
+
+
 class AppForm extends Component {
   render() {
     return (
       <form className="app-form">
-
+        {
+          this.props.data.map( (item, index) => {
+            return <FormItem key={index}
+                             order={index}
+                             type={item.type}
+                             label={item.label}
+                             value={item.value}
+                             values={item.values} />
+          })
+        }
       </form>
     );
   }
 }
 
 const mapStateToProps = (state, ownProps) => {
-  const id = ownProps.id;
-
-  const data = getObjectById(state.formsInfo, id).data;
-
-  console.log(data);
+  const data = getObjectById(state.formsInfo, ownProps.id).data;
 
   return {
-    id,
     data
   };
 }
@@ -44,7 +52,11 @@ AppForm.propTypes = {
     PropTypes.shape({
       type: PropTypes.oneOf([
         'string',
-        'integer'
+        'integer',
+        'list',
+        'double',
+        'text',
+        'bool'
       ]),
       label: PropTypes.string,
       value: PropTypes.oneOfType([
