@@ -3,7 +3,13 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 const FormItemText = ({order, label, value}) => {
-  return <div>FormItemText</div>;
+  return (
+    <div className="form-item-text">
+      <label>
+        {label}<br /><textarea value={value} />
+      </label>
+    </div>
+  );
 }
 
 const mapStateToProps = state => {

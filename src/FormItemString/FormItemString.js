@@ -4,7 +4,13 @@ import { connect } from 'react-redux';
 
 const FormItemString = ({order, label, value}) => {
 
-  return React.createElement('div', null, 'FormItemString');
+  return (
+    <div className="form-item-string">
+      <label>
+        {label}<br /><input type="text" value={value} />
+      </label>
+    </div>
+  );
 }
 
 const mapStateToProps = state => {

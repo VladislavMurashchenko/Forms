@@ -3,7 +3,13 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 const FormItemBool = ({order, label, value}) => {
-  return (<div>FormItemBool</div>);
+  return (
+    <div className="form-item-bool">
+      <label>
+        <input type="checkbox" checked={value} />{label}
+      </label>
+    </div>
+  );
 }
 
 const mapStateToProps = state => {

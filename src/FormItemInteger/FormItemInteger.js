@@ -3,7 +3,13 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 const FormItemInteger = ({order, label, value}) => {
-  return <div>FormItemInteger</div>;
+  return (
+    <div className="form-item-integer">
+      <label>
+        {label}<br /><input type="number" value={value} />
+      </label>
+    </div>
+  );
 }
 
 const mapStateToProps = state => {

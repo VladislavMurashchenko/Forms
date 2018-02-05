@@ -2,8 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-const FormItemDouble = ({order, type, label, value, values}) => {
-  return <div>FormItemDouble</div>;
+const FormItemDouble = ({order, label, value}) => {
+  return (
+    <div className="form-item-double">
+      <label>
+        {label}<br /><input type="number" value={value} />
+      </label>
+    </div>
+  );
 }
 
 const mapStateToProps = state => {
