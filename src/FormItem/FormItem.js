@@ -8,20 +8,21 @@ import FormItemDouble from '../FormItemDouble/FormItemDouble';
 import FormItemText from '../FormItemText/FormItemText';
 import FormItemBool from '../FormItemBool/FormItemBool';
 
-const FormItems = {
-  FormItemString,
-  FormItemInteger,
-  FormItemList,
-  FormItemDouble,
-  FormItemText,
-  FormItemBool
+const formItem = {
+  string: FormItemString,
+  integer: FormItemInteger,
+  list: FormItemList,
+  double: FormItemDouble,
+  text: FormItemText,
+  bool: FormItemBool
 }
 
-const FormItem = (props) => {
-  const typeCapitalized = props.type[0].toUpperCase() + props.type.slice(1);
-  const componentName = `FormItem${typeCapitalized}`;
+const FormItem = ({ order, type, label, value, values }) => {
+  const CustomFormItem = formItem[type];
 
-  return React.createElement(FormItems[componentName], {...props}, null);
+  const props = {order, label, value, values};
+
+  return <CustomFormItem className="form-item" {...props} />;
 }
 
 export default FormItem;
