@@ -25,7 +25,7 @@ class AppForm extends Component {
           })
         }
         <button className="app-form__btn" type="button">Save</button>
-        <button className="app-form__btn" type="button">Delete</button>
+        <button className="app-form__btn" type="button">Reject</button>
       </form>
     );
   }
