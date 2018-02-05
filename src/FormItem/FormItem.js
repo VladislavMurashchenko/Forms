@@ -1,29 +1,30 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-class FormItem extends Component {
-  render() {
-    const { order, type, label, value, values } = this.props;
-    console.log(this.props);
-    return (
-      <div>formItem</div>
-    );
-  }
+import FormItemString from '../FormItemString/FormItemString';
+import FormItemInteger from '../FormItemInteger/FormItemInteger';
+import FormItemList from '../FormItemList/FormItemList';
+import FormItemDouble from '../FormItemDouble/FormItemDouble';
+import FormItemText from '../FormItemText/FormItemText';
+import FormItemBool from '../FormItemBool/FormItemBool';
+
+const FormItems = {
+  FormItemString,
+  FormItemInteger,
+  FormItemList,
+  FormItemDouble,
+  FormItemText,
+  FormItemBool
 }
 
-const mapStateToProps = state => {
-  return {};
+const FormItem = (props) => {
+  const typeCapitalized = props.type[0].toUpperCase() + props.type.slice(1);
+  const componentName = `FormItem${typeCapitalized}`;
+
+  return React.createElement(FormItems[componentName], {...props}, null);
 }
 
-const mapDispatchToProps = dispatch => {
-  return {};
-}
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(FormItem);
+export default FormItem;
 
 FormItem.propTypes = {
   order: PropTypes.number,
