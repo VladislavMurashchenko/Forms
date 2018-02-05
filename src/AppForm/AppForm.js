@@ -24,6 +24,10 @@ class AppForm extends Component {
                              values={item.values} />
           })
         }
+        <div className="app-form__btns-wrapper">
+          <button className="app-form__save" type="button">Save</button>
+          <button className="app-form__delete" type="button">Delete</button>
+        </div>
       </form>
     );
   }
