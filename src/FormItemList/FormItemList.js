@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 const FormItemList = ({order, label, values}) => {
-  console.log(values);
+
   return (
     <div className="form-item-list">
       {label}
       <ul>
         {
-          values.map(value => <li><input type="text" value={value}/></li>)
+          values.map((value, index) => <li key={index}><input type="text" value={value}/></li>)
         }
       </ul>
     </div>
