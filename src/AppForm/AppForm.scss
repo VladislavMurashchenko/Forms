@@ -1,6 +1,29 @@
 @import 'SCSS/_global_colors.scss';
+@import 'SCSS/_circle-overlay.scss';
 
 .app-form {
+  $amount: 20%;
   min-height: 500px;
-  border: 5px solid black;
+  max-width: 900px;
+
+  padding: 5%;
+  margin: auto;
+
+  border-top: 5px solid lighten($color_3, $amount);
+  border-bottom: 5px solid lighten($color_3, $amount);
+
+  &__btn {
+    padding: 5px 15px;
+    border: 1px solid $color_3;
+    background: inherit;
+    margin: 5% 0 0 10px;
+    cursor: pointer;
+    @include circle-overlay(rgba(0, 0, 0, 0.1), 0.4s);
+  }
+
+  &__btn:hover {
+    transition: transform 0.1s, box-shadow 0.1s;
+    transform: scale(1.1);
+    box-shadow: 0 5px 5px -5px;
+  }
 }
