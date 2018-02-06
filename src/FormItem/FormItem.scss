@@ -1,0 +1,28 @@
+@import 'SCSS/_global_colors.scss';
+
+.form-item {
+  margin-top: 5%;
+}
+
+.form-item_big-font {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.form-item__label {
+  display: block;
+  padding: 20px 0;
+}
+
+.form-item__core {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  margin-top: 5px;
+  padding: 7px 12px 6px;
+  border: 1px solid $color_3;
+
+  @media (min-width: 650px) {
+    padding: 1.4% 2.4% 1.2%;
+  }
+}

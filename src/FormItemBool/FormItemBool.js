@@ -2,11 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-const FormItemBool = ({order, label, value}) => {
+import './FormItemBool.css';
+
+const FormItemBool = ({order, label, value, className}) => {
   return (
-    <div className="form-item-bool">
-      <label>
-        <input type="checkbox" checked={value} />{label}
+    <div className={`form-item-bool ${className}`}>
+      <span className={`${className}_big-font form-item-bool__label`}>{label}</span>
+      <label className="form-item-bool__checkfield">
+        <input className="form-item-bool__input" type="checkbox" checked={value} />
+        <i class="form-item-bool__check-mark"></i>
       </label>
     </div>
   );

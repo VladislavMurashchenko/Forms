@@ -13,16 +13,27 @@
   border-bottom: 5px solid lighten($color_3, $amount);
 
   &__btn {
-    padding: 5px 15px;
+    padding: 8px 24px;
     border: 1px solid $color_3;
-    background: inherit;
-    margin: 5% 0 0 10px;
+    background: transparent;
+    margin: 5% 10px 0 0;
     cursor: pointer;
-    @include circle-overlay(rgba(0, 0, 0, 0.1), 0.4s);
+    transition: transform 0.1s, box-shadow 0.4s;
+
+    &_save {
+      @include circle-overlay(rgba(0, 148, 0, 0.3), 0.4s);
+    }
+
+    &_reject {
+      @include circle-overlay(rgba(148, 0, 0, 0.3), 0.4s);
+    }
+
+    @media (min-width: 820px) {
+      padding: 1.2% 3.6%;
+    }
   }
 
   &__btn:hover {
-    transition: transform 0.1s, box-shadow 0.1s;
     transform: scale(1.1);
     box-shadow: 0 5px 5px -5px;
   }

@@ -2,11 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-const FormItemDouble = ({order, label, value}) => {
+const FormItemDouble = ({order, label, value, className}) => {
   return (
-    <div className="form-item-double">
-      <label>
-        {label}<br /><input type="number" value={value} />
+    <div className={`form-item-double ${className}`}>
+      <label className={`${className}__label`}>
+        <span className={`${className}_big-font`}>{label}</span>
+        <input className={`${className}__core`} type="number" value={value} />
       </label>
     </div>
   );

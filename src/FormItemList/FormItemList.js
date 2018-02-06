@@ -2,14 +2,22 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-const FormItemList = ({order, label, values}) => {
+import './FormItemList.css';
+
+const FormItemList = ({order, label, values, className}) => {
 
   return (
-    <div className="form-item-list">
-      {label}
-      <ul>
+    <div className={`form-item-list ${className}`}>
+      <div className={`${className}__label`}>
+        <span className={`${className}_big-font`}>{label}</span>
+      </div>
+      <ul className="form-item-list__list">
         {
-          values.map((value, index) => <li key={index}><input type="text" value={value}/></li>)
+          values.map((value, index) => (
+            <li className="form-item-list__list-item" key={index}>
+              <input className={`${className}__core`} type="text" value={value}/>
+            </li>
+          ))
         }
       </ul>
     </div>

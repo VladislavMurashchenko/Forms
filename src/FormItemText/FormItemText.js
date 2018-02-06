@@ -2,11 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-const FormItemText = ({order, label, value}) => {
+import './FormItemText.css';
+
+const FormItemText = ({order, label, value, className}) => {
   return (
-    <div className="form-item-text">
-      <label>
-        {label}<br /><textarea value={value} />
+    <div className={`form-item-text ${className}`}>
+      <label className={`${className}__label`}>
+        <span className={`${className}_big-font`}>{label}</span>
+        <textarea className={`${className}__core form-item-text__textarea`} rows="4" value={value} />
       </label>
     </div>
   );

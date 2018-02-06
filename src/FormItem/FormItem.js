@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import './FormItem.css';
+
 import FormItemString from '../FormItemString/FormItemString';
 import FormItemInteger from '../FormItemInteger/FormItemInteger';
 import FormItemList from '../FormItemList/FormItemList';
