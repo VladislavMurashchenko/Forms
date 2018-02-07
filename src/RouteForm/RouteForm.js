@@ -12,9 +12,9 @@ import AppForm from '../AppForm/AppForm';
 
 class RouteForm extends Component {
   render() {
-    const {name, description, image, id, router } = this.props;
+    const {name, description, image, id, router, noSuchForm} = this.props;
 
-    return (
+    return noSuchForm ? <div className="no-such-form">No Such Form</div> : (
       <main className="route-form">
         <section className="route-form__container">
 
@@ -44,6 +44,7 @@ const mapStateToProps = (state, ownProps) => {
   let formInfo = getObjectById(state.formsInfo, id);
 
   return {
+    noSuchForm: !formInfo,
     ...formInfo
   };
 }
