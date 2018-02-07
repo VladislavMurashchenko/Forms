@@ -32,7 +32,9 @@ class AppForm extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  const data = getObjectById(state.formsInfo, ownProps.id).data;
+
+  const formInfo = getObjectById(state.formsInfo, ownProps.id);
+  const data = formInfo ? formInfo.data : [];
 
   return {
     data

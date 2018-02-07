@@ -174,6 +174,14 @@ const initialState = [{
     }]
  }];
 
-export default function(state = initialState) {
+export default function(state = initialState, {type, payload} = {}) {
+
+  if (type === 'DELETE_FORM') {
+    return [
+      ...state.filter(item => item.id !== payload)
+    ];
+  }
+
+
   return state;
 }
