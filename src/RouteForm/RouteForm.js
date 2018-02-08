@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import getObjectById from '../functions/get-object-by-id';
-
 import "../imgs/no_image_available.png";
 import "./RouteForm.css";
 
@@ -39,9 +37,9 @@ class RouteForm extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  const id = ownProps.params.id;
+  const id = +ownProps.params.id;
 
-  let formInfo = getObjectById(state.formsInfo, id);
+  let formInfo = state.formsInfo.find(item => item.id === id);
 
   return {
     noSuchForm: !formInfo,
