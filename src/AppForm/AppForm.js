@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import _ from 'lodash';
 
 import './AppForm.css';
 
@@ -14,6 +15,9 @@ class AppForm extends Component {
   }
 
   componentWillUnmount() {
+    if (!_.isEqual(this.props.staticFormData, this.props.currentFormData) &&
+        window.confirm("Do you want to save changes?")) this.saveForm();
+
     this.props.onUnmountForm();
   }
 
