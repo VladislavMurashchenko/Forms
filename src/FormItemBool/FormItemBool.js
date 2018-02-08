@@ -28,11 +28,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     onValueChange: (value, order) => {
-      const data = {
-        value
-      };
 
-      dispatch({type: "FORM_ITEM_VALUE_CHANGE", payload: {data, order}});
+      dispatch({type: "FORM_ITEM_VALUE_CHANGE", payload: {value, order}});
     }
   };
 }

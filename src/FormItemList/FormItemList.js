@@ -4,7 +4,11 @@ import { connect } from 'react-redux';
 
 import './FormItemList.css';
 
-const FormItemList = ({order, label, values, className}) => {
+const FormItemList = ({order, label, values, className, onValueChange}) => {
+
+  function valueChange(e) {
+    onValueChange(e.target.value, order, +e.target.dataset.order);
+  }
 
   return (
     <div className={`form-item-list ${className}`}>
@@ -15,7 +19,8 @@ const FormItemList = ({order, label, values, className}) => {
         {
           values.map((value, index) => (
             <li className="form-item-list__list-item" key={index}>
-              <input className={`${className}__core`} type="text" value={value}/>
+              <input className={`${className}__core`} type="text"
+                     data-order={index} value={value} onChange={valueChange}/>
             </li>
           ))
         }
@@ -29,7 +34,12 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => {
-  return {};
+  return {
+    onValueChange: (value, order, valueOrder) => {
+
+      dispatch({type: "FORM_ITEM_LIST_VALUE_CHANGE", payload: {value, order, valueOrder}});
+    }
+  };
 }
 
 export default connect(
@@ -40,5 +50,7 @@ export default connect(
 FormItemList.propTypes = {
   order: PropTypes.number,
   label: PropTypes.string,
-  values: PropTypes.arrayOf(PropTypes.string)
+  values: PropTypes.arrayOf(PropTypes.string),
+  className: PropTypes.string,
+  onValueChange: PropTypes.func
 }
