@@ -10,7 +10,7 @@ const FormItemBool = ({order, label, value, className}) => {
       <span className={`${className}_big-font form-item-bool__label`}>{label}</span>
       <label className="form-item-bool__checkfield">
         <input className="form-item-bool__input" type="checkbox" checked={value} />
-        <i class="form-item-bool__check-mark"></i>
+        <i className="form-item-bool__check-mark"></i>
       </label>
     </div>
   );
