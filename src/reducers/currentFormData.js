@@ -10,5 +10,16 @@ export default function(state = initialState, {type, payload} = {}) {
     return null;
   }
 
+  if (type === "FORM_ITEM_VALUE_CHANGE") {
+    return [
+      ...state.map((item, i) => {
+        return i !== payload.order ? item : {
+          ...item,
+          ...payload.data
+        }
+      })
+    ]
+  }
+
   return state;
 }
