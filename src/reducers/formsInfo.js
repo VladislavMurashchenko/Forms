@@ -182,6 +182,17 @@ export default function(state = initialState, {type, payload} = {}) {
     ];
   }
 
+  if (type === 'SAVE_FORM') {
+    return [
+      ...state.map(item => {
+        return item.id !== payload.id ? item : {
+          ...item,
+          data: payload.data
+        };
+      })
+    ];
+  }
+
 
   return state;
 }
