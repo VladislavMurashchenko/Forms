@@ -5,11 +5,12 @@ import { connect } from 'react-redux';
 import { FormInfo } from '../FormInfo/FormInfo';
 
 class FormsList extends Component {
+
   render() {
     return (
       <ul className="forms-list">
         {
-          this.props.formsInfo.map(form => {
+          this.props.formsInfo && this.props.formsInfo.map(form => {
             return (
               <FormInfo key={form.id}
                         id={form.id}

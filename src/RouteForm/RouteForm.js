@@ -10,9 +10,9 @@ import AppForm from '../AppForm/AppForm';
 
 class RouteForm extends Component {
   render() {
-    const {name, description, image, id, router, noSuchForm} = this.props;
+    const {name, description, image, router, noSuchForm, isLoaded} = this.props;
 
-    return noSuchForm ? <div className="no-such-form">No Such Form</div> : (
+    return noSuchForm ? <div className="no-such-form">No Such Form</div> : isLoaded && (
       <main className="route-form">
         <section className="route-form__container">
 
@@ -24,7 +24,7 @@ class RouteForm extends Component {
             <p className="route-form__description">{description}</p>
           </header>
 
-          <AppForm id={id} />
+          <AppForm id={+this.props.params.id} />
 
           <footer className="route-form__footer">
             <button className="route-form__go-back" onClick={router.goBack}>Go Back</button>
@@ -39,10 +39,15 @@ class RouteForm extends Component {
 const mapStateToProps = (state, ownProps) => {
   const id = +ownProps.params.id;
 
-  let formInfo = state.formsInfo.find(item => item.id === id);
+  const formInfo = state.formsInfo ? state.formsInfo.find(item => item.id === id) : null;
+
+  const isLoaded = !!formInfo;
+
+  const noSuchForm = !formInfo && state.formsInfo;
 
   return {
-    noSuchForm: !formInfo,
+    noSuchForm,
+    isLoaded,
     ...formInfo
   };
 }

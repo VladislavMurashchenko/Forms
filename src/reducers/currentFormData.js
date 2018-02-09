@@ -6,6 +6,10 @@ export default function(state = initialState, {type, payload} = {}) {
     return payload;
   }
 
+  if (type === 'RECEIVED_FORM_DATA') {
+    return payload.data;
+  }
+
   if (type === "UNMOUNT_FORM") {
     return null;
   }

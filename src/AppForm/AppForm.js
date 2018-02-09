@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import _ from 'lodash';
+import { getStaticFormData } from '../actions/getStaticFormData';
+import { GET_API_URL } from '../GET_API_URL';
 
 import './AppForm.css';
 
@@ -11,6 +13,11 @@ import FormItem from '../FormItem/FormItem';
 
 class AppForm extends Component {
   componentDidMount() {
+    if (!this.props.staticFormData) {
+      this.props.onGetStaticFormData(this.props.id);
+      return;
+    }
+
     this.refillForm();
   }
 
@@ -32,6 +39,9 @@ class AppForm extends Component {
   render() {
     return (
       <form className="app-form">
+        {
+          !this.props.currentFormData && <div>Loading...</div>
+        }
         {
           this.props.currentFormData && this.props.currentFormData.map( (item, index) => {
             return <FormItem key={index}
@@ -55,9 +65,9 @@ class AppForm extends Component {
 
 const mapStateToProps = (state, ownProps) => {
 
-  const formInfo = state.formsInfo.find(item => item.id === ownProps.id);
+  const formInfo = state.formsInfo ? state.formsInfo.find(item => item.id === ownProps.id) : null;
 
-  const staticFormData = formInfo ? formInfo.data : null;
+  const staticFormData = formInfo && formInfo.data ? formInfo.data : null;
   const currentFormData = state.currentFormData;
 
   return {
@@ -68,7 +78,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onRefillForm: (data) => {
+    onRefillForm: data => {
       dispatch({type: "REFILL_FORM", payload: data});
     },
     onSaveForm: (id, data) => {
@@ -76,6 +86,9 @@ const mapDispatchToProps = dispatch => {
     },
     onUnmountForm: () => {
       dispatch({type: "UNMOUNT_FORM"});
+    },
+    onGetStaticFormData: id => {
+      dispatch(getStaticFormData(GET_API_URL, id));
     }
   };
 }
