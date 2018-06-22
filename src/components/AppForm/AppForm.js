@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import _ from 'lodash';
-import { getStaticFormData } from '../actions/getStaticFormData';
-import { GET_API_URL } from '../GET_API_URL';
+import { getStaticFormData } from '../../actions/getStaticFormData';
+import { GET_API_URL } from '../../constants/GET_API_URL';
 
 import './AppForm.css';
 
@@ -67,12 +67,9 @@ const mapStateToProps = (state, ownProps) => {
 
   const formInfo = state.formsInfo ? state.formsInfo.find(item => item.id === ownProps.id) : null;
 
-  const staticFormData = formInfo && formInfo.data ? formInfo.data : null;
-  const currentFormData = state.currentFormData;
-
   return {
-    staticFormData,
-    currentFormData
+    staticFormData: formInfo && formInfo.data ? formInfo.data : null,
+    currentFormData: state.currentFormData,
   };
 }
 

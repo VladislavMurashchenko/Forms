@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Router, Route, Redirect, IndexRedirect } from 'react-router';
 import { connect } from 'react-redux';
-import { getFormsInfo } from '../actions/getFormsInfo';
-import { GET_API_URL } from '../GET_API_URL';
+import { getFormsInfo } from '../../actions/getFormsInfo';
+import { GET_API_URL } from '../../constants/GET_API_URL';
 
 import './App.css';
 

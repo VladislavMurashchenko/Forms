@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import "../imgs/no_image_available.png";
+import "../../imgs/no_image_available.png";
 import "./RouteForm.css";
 
 import AppForm from '../AppForm/AppForm';

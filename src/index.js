@@ -11,7 +11,7 @@ import reducer from './reducers';
 import './index.css';
 import 'normalize.css';
 import registerServiceWorker from './registerServiceWorker';
-import { App } from './App/App';
+import { App } from './components/App/App';
 
 
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)));
